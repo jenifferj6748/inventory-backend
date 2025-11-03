@@ -25,7 +25,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'i++h-(jt_z_4)kphaz!17k*vt(&2de_xpn&-2
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # 🔸 Replace 'your-app-name' with your Render app name
-ALLOWED_HOSTS = ['mybackend.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['inventory-backend-5wo6.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # -------------------------------
