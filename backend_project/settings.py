@@ -90,16 +90,23 @@ WSGI_APPLICATION = 'backend_project.wsgi.application'
 # -------------------------------
 
 # ✅ For local development (your MySQL)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.environ.get('DB_NAME', 'fullstack_db'),   # 🔸 your local DB name
+#         'USER': os.environ.get('DB_USER', 'root'),           # 🔸 your MySQL username
+#         'PASSWORD': os.environ.get('DB_PASSWORD', ''),       # 🔸 your MySQL password
+#         'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+#         'PORT': os.environ.get('DB_PORT', '3306'),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'fullstack_db'),   # 🔸 your local DB name
-        'USER': os.environ.get('DB_USER', 'root'),           # 🔸 your MySQL username
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),       # 🔸 your MySQL password
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('postgresql://inventory_db_utyb_user:AObhmgyJ3hQUbvp6OuQnx88aZzv5EHdD@dpg-d445rg3ipnbc73cla58g-a.singapore-postgres.render.com/inventory_db_utyb')
+    )
 }
+
 
 # ✅ For Render PostgreSQL (auto-switch if DATABASE_URL is available)
 if os.environ.get('DATABASE_URL'):
